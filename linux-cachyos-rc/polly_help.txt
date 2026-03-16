@@ -1,0 +1,50 @@
+Polly Options:
+Configure the polly loop optimizer
+  --polly                                                                - Enable the polly optimizer (with -O1, -O2 or -O3)
+  --polly-2nd-level-tiling                                               - Enable a 2nd level loop of loop tiling
+  --polly-annotate-metadata-vectorize                                    - Append vectorize enable/disable metadata from polly
+  --polly-ast-print-accesses                                             - Print memory access functions
+  --polly-context=<isl parameter set>                                    - Provide additional constraints on the context parameters
+  --polly-dce-precise-steps=<int>                                        - The number of precise steps between two approximating iterations. (A value of -1 schedules another approximation stage before the actual dead code elimination.
+  --polly-delicm-max-ops=<int>                                           - Maximum number of isl operations to invest for lifetime analysis; 0=no limit
+  --polly-detect-full-functions                                          - Allow the detection of full functions
+  --polly-dump-after                                                     - Dump module after Polly transformations into a file suffixed with "-after"
+  --polly-dump-after-file=<string>                                       - Dump module after Polly transformations to the given file
+  --polly-dump-before                                                    - Dump module before Polly transformations into a file suffixed with "-before"
+  --polly-dump-before-file=<string>                                      - Dump module before Polly transformations to the given file
+  --polly-enable-simplify                                                - Simplify SCoP after optimizations
+  --polly-ignore-func=<string>                                           - Ignore functions that match a regex. Multiple regexes can be comma separated. Scop detection will ignore all functions that match ANY of the regexes provided.
+  --polly-isl-arg=<argument>                                             - Option passed to ISL
+  --polly-matmul-opt                                                     - Perform optimizations of matrix multiplications based on pattern matching
+  --polly-on-isl-error-abort                                             - Abort if an isl error is encountered
+  --polly-only-func=<string>                                             - Only run on functions that match a regex. Multiple regexes can be comma separated. Scop detection will run on all functions that match ANY of the regexes provided.
+  --polly-only-region=<identifier>                                       - Only run on certain regions (The provided identifier must appear in the name of the region's entry block
+  --polly-only-scop-detection                                            - Only run scop detection, but no other optimizations
+  --polly-optimized-scops                                                - Polly - Dump polyhedral description of Scops optimized with the isl scheduling optimizer and the set of post-scheduling transformations is applied on the schedule tree
+  --polly-parallel                                                       - Generate thread parallel code (isl codegen only)
+  --polly-parallel-force                                                 - Force generation of thread parallel code ignoring any cost model
+  --polly-pattern-matching-based-opts                                    - Perform optimizations based on pattern matching
+  --polly-postopts                                                       - Apply post-rescheduling optimizations such as tiling (requires -polly-reschedule)
+  --polly-pragma-based-opts                                              - Apply user-directed transformation from metadata
+  --polly-pragma-ignore-depcheck                                         - Skip the dependency check for pragma-based transformations
+  --polly-print-ast                                                      - Print the ISL abstract syntax tree
+  --polly-print-delicm                                                   - Polly - Print DeLICM/DePRE
+  --polly-print-deps                                                     - Polly - Print dependences
+  --polly-print-detect                                                   - Polly - Print static control parts (SCoPs)
+  --polly-print-flatten-schedule                                         - A polly pass
+  --polly-print-import-jscop                                             - Polly - Print Scop import result
+  --polly-print-mse                                                      - Polly - Print Maximal static expansion of SCoP
+  --polly-print-opt-isl                                                  - A polly pass
+  --polly-print-optree                                                   - Polly - Print forward operand tree result
+  --polly-print-scops                                                    - Print polyhedral description of all regions
+  --polly-print-simplify                                                 - Polly - Print Simplify actions
+  --polly-process-unprofitable                                           - Process scops that are unlikely to benefit from Polly optimizations.
+  --polly-register-tiling                                                - Enable register tiling
+  --polly-report                                                         - Print information about the activities of Polly
+  --polly-reschedule                                                     - Optimize SCoPs using ISL
+  --polly-show                                                           - Highlight the code regions that will be optimized in a (CFG BBs and LLVM-IR instructions)
+  --polly-show-only                                                      - Highlight the code regions that will be optimized in a (CFG only BBs)
+  --polly-stmt-granularity=<value>                                       - Algorithm to use for splitting basic blocks into multiple statements
+  --polly-tc-opt                                                         - Perform optimizations of tensor contractions based on pattern matching
+  --polly-tiling                                                         - Enable loop tiling
+  --polly-vectorizer=<value>                                             - Select the vectorization strategy
