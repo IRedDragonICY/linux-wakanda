@@ -1,4 +1,5 @@
 rm -rf src/ pkg/
+updpkgsums
 makepkg -scf --noconfirm
 
 # install package with pacman

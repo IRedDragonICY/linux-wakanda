@@ -1,0 +1,37 @@
+From: Mohammad Farid Hendianto <hendik.suwoto@gmail.com>
+Date: Tue, 25 Mar 2026 13:51:00 +0700
+Subject: [PATCH] ALSA: amd: yc: Add MSI Bravo 15 C7VE to quirk table for DMIC
+ support
+
+The MSI Bravo 15 C7VE (MS-158N board) with AMD Rembrandt (Ryzen 7
+7735HS) has a broken/incomplete BIOS ACPI implementation that does not
+correctly expose the _WOV or AcpDmicConnected properties. As a result,
+the snd_soc_acp6x_mach driver fails to probe the internal Digital
+Microphone Array (DMIC) and returns -ENODEV.
+
+Add a DMI quirk entry for the MSI Bravo 15 C7VE to the
+yc_acp_quirk_table so the DMIC is properly enabled on this hardware.
+
+Signed-off-by: Mohammad Farid Hendianto <hendik.suwoto@gmail.com>
+---
+ sound/soc/amd/yc/acp6x-mach.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/sound/soc/amd/yc/acp6x-mach.c b/sound/soc/amd/yc/acp6x-mach.c
+index 1234567..abcdef0 100644
+--- a/sound/soc/amd/yc/acp6x-mach.c
++++ b/sound/soc/amd/yc/acp6x-mach.c
+@@ -471,6 +471,13 @@ static const struct dmi_system_id yc_acp_quirk_table[] = {
+ 			DMI_MATCH(DMI_PRODUCT_NAME, "Bravo 15 C7VF"),
+ 		}
+ 	},
++	{
++		.driver_data = &acp6x_card,
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "Micro-Star International Co., Ltd."),
++			DMI_MATCH(DMI_PRODUCT_NAME, "Bravo 15 C7VE"),
++		}
++	},
+ 	{
+ 		.driver_data = &acp6x_card,
+ 		.matches = {
